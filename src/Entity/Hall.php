@@ -23,7 +23,7 @@ class Hall
     private ?bool $available = null;
 
     #[ORM\ManyToOne(inversedBy: 'halls')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?ConcertHall $concertHall = null;
 
     #[ORM\OneToOne(mappedBy: 'hall', cascade: ['persist', 'remove'])]
