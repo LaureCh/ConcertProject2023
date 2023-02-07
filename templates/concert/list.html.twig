@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    Hello {{ name }}!
+    {% for concert in concerts %}
+        <li>{{ concert|e }}</li>
+    {% endfor %}
+{% endblock %}
