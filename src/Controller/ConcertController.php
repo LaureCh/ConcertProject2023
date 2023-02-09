@@ -13,6 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 class ConcertController extends AbstractController
 {
@@ -65,6 +66,7 @@ class ConcertController extends AbstractController
      * @throws OptimisticLockException
      */
     #[NoReturn] #[Route("/concert/create", name: "concert_create")]
+    #[IsGranted('ROLE_ADMIN')]
     public function createConcert(Request $request, EntityManagerInterface $entityManager): Response
     {
         $concert = new Concert();
